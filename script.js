@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
+    locale: "es",
   });
 
   calendar.render();
@@ -53,3 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
     return [year, month, day].join("-");
   }
 });
+
+function copyToClipboard(inputId) {
+  var copyText = document.getElementById(inputId);
+
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+
+  document.execCommand("copy");
+
+  alert("Copiado: " + copyText.value);
+}
