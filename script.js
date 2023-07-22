@@ -68,3 +68,9 @@ function copyToClipboard(inputId) {
 
   alert("Copiado: " + copyText.value);
 }
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-JB5STV6F2W');
