@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
       incremento = 2;
     } else if (horario === "24x48") {
       incremento = 3;
+    } else if (horario === "48x96") { // Añade este condicional
+      incremento = 5;
     }
 
     let fechaActual = new Date(fechaInicio);
@@ -42,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     calendar.gotoDate(formatDate(fechaInicio));
   });
 
+
   function formatDate(date) {
     var d = new Date(date),
       month = "" + (d.getUTCMonth() + 1),
@@ -59,7 +62,7 @@ function copyToClipboard(inputId) {
   var copyText = document.getElementById(inputId);
 
   copyText.select();
-  copyText.setSelectionRange(0, 99999); 
+  copyText.setSelectionRange(0, 99999);
 
   document.execCommand("copy");
 
