@@ -16,7 +16,7 @@ input[type="date"] {
 }
 
 body {
-  position: relative; /* Agrega esta línea */
+  position: relative; 
   font-size: 1.5vw;
   padding-bottom: 120px;
 }
@@ -25,7 +25,7 @@ body {
   width: 80vw;
   height: 80vh;
   margin: auto;
-  margin-bottom: 120px; /* Agrega esta línea */
+  margin-bottom: 120px;
 }
 
 footer {
@@ -38,46 +38,31 @@ footer {
   background: #f5f5f5;
 }
 
-/* Este media query reducirá el tamaño de los elementos select, button y input[type="date"] en pantallas de menos de 768px de ancho. */
-@media (max-width: 768px) {
-  body {
-    font-size: 3vw;
-  }
-  #calendar {
-    width: 90vw;
-    height: 90vh;
-  }
-  select,
-  button,
-  input[type="date"] {
-    width: 150px;
-    height: 30px;
-    font-size: 14px;
-  }
-}
-
 .main-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .input-container {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0px;
+  flex-basis: 100%;
 }
 
 .input-field {
   display: inline-block;
 }
 
-.pdf-button button {
+.pdf-button button,
+#calcular {
   font-size: 2em;
   height: 50%;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   height: 100px;
 }
 
@@ -104,39 +89,29 @@ footer {
   width: 15%;
 }
 
-.main-container {
-  display: flex;
-  justify-content: flex-end; /* Alinea los elementos a la derecha */
-  align-items: flex-start; /* Alinea los elementos en la parte superior */
-  gap: 0px;
-  margin-bottom: 20px; /* Agregamos un espacio entre los botones y los campos de entrada */
-}
-
-.input-container {
-  display: inline-flex;
-  align-items: center;
-  gap: 0px;
-}
-
-.input-field {
-  display: inline-block;
-}
-
-#calcular {
-  margin-left: auto;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
-  padding: 10px 20px;
-}
-
-/* Eliminamos la posición absoluta del footer para que no se superponga con los botones */
-.footer {
-  width: 100%;
-  text-align: center;
-  font-size: 1vw;
-  padding: 1em;
-  background: #f5f5f5;
+/* Este media query reducirá el tamaño de los elementos select, button y input[type="date"] en pantallas de menos de 768px de ancho. */
+@media (max-width: 768px) {
+  body {
+    font-size: 3vw;
+  }
+  #calendar {
+    width: 90vw;
+    height: 90vh;
+  }
+  select,
+  button,
+  input[type="date"] {
+    width: 90vw;
+    height: 5vh;
+    font-size: 3vw;
+  }
+  .pdf-button button,
+  #calcular {
+    font-size: 3vw;
+    height: 6vh;
+  }
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
