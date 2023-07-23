@@ -75,10 +75,18 @@ footer {
 .pdf-button button {
   font-size: 2em;
   height: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100px;
 }
 
 #calcular {
   margin-left: 0px; /* Reduce este valor según tus necesidades */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100px;
 }
 
 .footer {
@@ -96,7 +104,7 @@ footer {
 }
 
 .footer input {
-  width: 80%; 
+  width: 80%;
   margin-bottom: 1em;
 }
 
