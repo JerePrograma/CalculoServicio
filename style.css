@@ -121,12 +121,15 @@ footer {
 .input-field {
   display: inline-block;
 }
+
 #calcular {
-  margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
+  margin-left: auto;
   height: 100px;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  padding: 10px 20px;
 }
 
 /* Eliminamos la posición absoluta del footer para que no se superponga con los botones */

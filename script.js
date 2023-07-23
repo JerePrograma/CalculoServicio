@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let fechaInicio = new Date(document.getElementById("fecha").value);
     if (horario === "" || isNaN(fechaInicio)) {
       alert(
-        "Por favor, selecciona un horario y una fecha antes de calcular las fechas."
+        "Por favor, seleccioná un horario y una fecha antes de calcular las fechas."
       );
       return;
     }
@@ -100,7 +100,7 @@ document.getElementById("generatePDF").addEventListener("click", function () {
     var imgData = canvas.toDataURL("image/png");
 
     // Crear una nueva instancia de jsPDF en orientación horizontal
-    let doc = new jsPDF("landscape");
+    let doc = new jsPDF();
 
     doc.addImage(imgData, "PNG", 0, 0);
     doc.save("Servicios_mes.pdf");
