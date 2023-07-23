@@ -81,14 +81,6 @@ footer {
   height: 100px;
 }
 
-#calcular {
-  margin-left: 0px; /* Reduce este valor según tus necesidades */
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  height: 100px;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -110,4 +102,38 @@ footer {
 
 .footer button {
   width: 15%;
+}
+
+.main-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea los elementos a la derecha */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  gap: 0px;
+  margin-bottom: 20px; /* Agregamos un espacio entre los botones y los campos de entrada */
+}
+
+.input-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0px;
+}
+
+.input-field {
+  display: inline-block;
+}
+#calcular {
+  margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/* Eliminamos la posición absoluta del footer para que no se superponga con los botones */
+.footer {
+  width: 100%;
+  text-align: center;
+  font-size: 1vw;
+  padding: 1em;
+  background: #f5f5f5;
 }
