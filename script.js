@@ -14,18 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("calcular").addEventListener("click", function () {
     let horario = document.getElementById("horario").value;
     let fechaInicio = new Date(document.getElementById("fecha").value);
-
-    fechaInicio.setUTCHours(0, 0, 0, 0);
-
-    calendar.getEvents().forEach(function (event) {
-      event.remove();
-    });
     if (horario === "" || isNaN(fechaInicio)) {
       alert(
         "Por favor, selecciona un horario y una fecha antes de calcular las fechas."
       );
       return;
     }
+    fechaInicio.setUTCHours(0, 0, 0, 0);
+
+    calendar.getEvents().forEach(function (event) {
+      event.remove();
+    });
 
     let incremento;
     if (horario === "12x36") {
