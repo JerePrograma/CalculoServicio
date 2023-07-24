@@ -4,62 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cuando me toca servicio</title>
-    <link
-      href="https://unpkg.com/fullcalendar@v5/main.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/fullcalendar@v5/main.min.css" rel="stylesheet"/>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/> -->
+    <link rel="stylesheet" href="style.css"/>
     <script src="https://www.googletagmanager.com/gtag/js?id=G-JB5STV6F2W"></script>
   </head>
   <body>
-    <div class="main-container">
-      <div class="input-container">
-        <div class="input-field">
-          <label class="text-primary" for="horario">Elegí tu horario:</label>
-          <select id="horario" name="horario">
-            <option value="12x36">12x36</option>
-            <option value="24x48">24x48</option>
-            <option value="48x96">48x96 (2x4)</option>
-          </select>
-        </div>
+    <main>
+      <div class="main-container">
+          <div class="input-container">
+            <div class="input-field">
+              <label class="text-primary" for="horario">Elegí tu horario</label>
+              <select id="horario" name="horario">
+                <option value="12x36">12x36</option>
+                <option value="24x48">24x48</option>
+                <option value="48x96">48x96 (2x4)</option>
+              </select>
+            </div>
 
-        <div class="input-field">
-          <label class="text-primary" for="fecha">Elegí una fecha:</label>
-          <input type="date" id="fecha" name="fecha" />
-        </div>
+            <div class="input-field">
+              <label class="text-primary" for="fecha">Elegí una Fecha</label>
+              <input type="date" id="fecha" name="fecha" />
+            </div>
 
-        <button id="calcular">Calcular fechas</button>
+          </div>
+          <div class="botones">
+            <div class="btn-calcular">
+              <button id="calcular">Calcular Fechas</button>
+            </div>
+            <div class="pdf-button">
+              <button id="generatePDF" class="btn btn-primary">Guardar PDF</button>
+            </div>
+          </div>
       </div>
-
-      <div class="pdf-button">
-        <button id="generatePDF" class="btn btn-primary" style="font-size: 2em">
-          Guardar PDF
-        </button>
-      </div>
-    </div>
-
-    <p id="resultado"></p>
-    <div id="calendar"></div>
+      <div id="calendar"></div>
+    </main>
+    <footer class="footer">
+        <p>Jeremias Rivelli</p>
+        <a href="mailto:jeremias.j.riv@gmail.com">jeremias.j.riv@gmail.com</a>
+        <p>¡Tu donación ayuda a mejorar la página!</p>
+        <div class="MercadoPago">
+          <input type="text" value="0000003100041503610176" id="cvuInput" />
+          <button onclick="copyToClipboard('cvuInput')">Copiar CVU (MercadoPago)</button>
+          <input type="text" value="Jeremias.Rivelli" id="aliasInput" />
+          <button onclick="copyToClipboard('aliasInput')">Copiar Alias (MercadoPago)</button>
+        </div>
+    </footer>
+    
+    <script src="fullcalendar-6.1.8/dist/index.global.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="script.js"></script>
   </body>
-  <footer class="footer">
-    <p>Jeremias Rivelli</p>
-    <a href="mailto:jeremias.j.riv@gmail.com">jeremias.j.riv@gmail.com</a>
-  
-    <div>
-      <p>¡Tu donación ayuda a mejorar la página!</p>
-      <input type="text" value="0000003100041503610176" id="cvuInput" />
-      <button onclick="copyToClipboard('cvuInput')">Copiar CVU (MercadoPago)</button>
-      <input type="text" value="Jeremias.Rivelli" id="aliasInput" />
-      <button onclick="copyToClipboard('aliasInput')">Copiar Alias (MercadoPago)</button>
-    </div>
-  </footer>
-  
-  <script src="fullcalendar-6.1.8/dist/index.global.min.js"></script>
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
-  <script src="script.js"></script>
 </html>
