@@ -125,7 +125,9 @@ footer button {
   }
 }
 
-h1{
-  text-align: hid;
+h1 {
+  text-align: center;
   margin-top: auto;
+  font-size: 2em;
+  color: #007bff;
 }
