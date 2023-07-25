@@ -124,3 +124,8 @@ footer button {
     flex-direction: column;
   }
 }
+
+h1{
+  text-align: hid;
+  margin-top: auto;
+}
