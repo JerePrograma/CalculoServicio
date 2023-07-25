@@ -1,117 +1,126 @@
-option,
-input[type="date"] {
-  text-align: center;
-}
-
-body {
-  font-size: 1.5vw;
-}
-
-select,
-button,
-input[type="date"] {
-  width: 20vw;
-  height: 5vh;
-  font-size: 1vw;
-}
-
-body {
-  position: relative; 
-  font-size: 1.5vw;
-  padding-bottom: 120px;
-}
-
-#calendar {
-  width: 80vw;
-  height: 80vh;
-  margin: auto;
-  margin-bottom: 120px;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1vw;
-  padding: 1em;
-  background: #f5f5f5;
+* {
+  font-family: Helvetica, sans-serif;
 }
 
 .main-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-.input-container {
+.input-container,
+.botones {
   display: flex;
-  align-items: center;
-  gap: 0px;
-  flex-basis: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
 }
 
-.input-field {
-  display: inline-block;
+label {
+  font-size: 1.6em;
+  color: #007bff;
 }
 
-.pdf-button button,
-#calcular {
+.input-field,
+#calcular,
+#generatePDF {
+  width: 300px;
+  text-align: center;
+  border-radius: 0.8em;
+}
+
+#horario,
+#fecha {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  height: 35px;
+  border: 1px solid #CCC;
+  border-radius: 0.5em;
+  font-size: 1.3em;
+}
+
+#calcular,
+#generatePDF {
+  height: 65px;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  color: #FFF;
+  border: none;
+  background-color: #007bff;
+}
+
+#calendar {
+  display: flex;
+  text-align: center;
+  scale: 0.9;
+}
+
+
+.fc-header-toolbar {
+  justify-content: end;
+  align-items: end;
+}
+
+.fc-header-toolbar,
+.fc-view-harness {
+  width: 80%;
+  align-self: center;
+}
+
+.fc-daygrid-day-frame {
+  border: 2px solid rgb(211, 233, 178);
+}
+
+.fc-daygrid-day-number {
   font-size: 2em;
-  height: 50%;
+  color: #007bff;
+}
+
+footer {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.MercadoPago {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100px;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+footer input {
+  font-size: 1.2em;
+  border: none;
   text-align: center;
-  font-size: 1vw;
-  padding: 1em;
-  background: #f5f5f5;
 }
 
-.footer div {
-  margin-top: 1em;
+footer button {
+  border-radius: 0.5em;
+  background-color: #007bff;
+  color: #FFF;
+  border: none;
+  padding: 10px;
+  max-width: 450px;
+  align-self: center;
+  font-size: 1.2em;
 }
 
-.footer input {
-  width: 80%;
-  margin-bottom: 1em;
-}
-
-.footer button {
-  width: 15%;
-}
-
-/* Este media query reducirá el tamaño de los elementos select, button y input[type="date"] en pantallas de menos de 768px de ancho. */
-@media (max-width: 768px) {
-  body {
-    font-size: 3vw;
-  }
-  #calendar {
-    width: 90vw;
-    height: 90vh;
-  }
-  select,
-  button,
-  input[type="date"] {
-    width: 90vw;
-    height: 5vh;
-    font-size: 3vw;
-  }
-  .pdf-button button,
-  #calcular {
-    font-size: 3vw;
-    height: 6vh;
-  }
-  .input-container {
+@media (max-width: 700px) {
+  .main-container {
     flex-direction: column;
-    align-items: stretch;
+    height: 400px;
+  }
+
+  #calendar{
+    scale: 0.98;
+  }
+  .fc-header-toolbar,
+  .fc-view-harness {
+    width: 100%;
+  }
+
+  .MercadoPago {
+    flex-direction: column;
   }
 }
