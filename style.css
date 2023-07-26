@@ -105,7 +105,7 @@ button {
 #calendar {
   display: flex;
   text-align: center;
-  scale: 0.9;
+  margin-top: 50px;
 }
 
 .fc-header-toolbar {
@@ -119,8 +119,9 @@ button {
   align-self: center;
 }
 
-.fc-daygrid-day-frame {
-  border: 2px solid rgb(211, 233, 178);
+#calendar th,#calendar td,#calendar tr{
+  border: 3px solid  #625e6e;
+  border-collapse: collapse;
 }
 
 .fc-daygrid-day-number {
@@ -199,8 +200,8 @@ footer button {
     margin-right: 0;
     width: auto;
   }
-  .fc-media-screen{
-    height: 80vh;  
+  .fc-media-screen {
+    height: 80vh;
   }
 }
 
@@ -212,10 +213,20 @@ h1 {
 }
 
 .fc-toolbar-title::first-letter {
-  text-transform: capitalize ;
+  text-transform: capitalize;
 }
 
-.fc-toolbar-title{
+.fc-toolbar-title {
   font-size: 1.6em;
   color: #007bff;
+}
+
+.fc-col-header-cell-cushion {
+  color: #007bff;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.fc-col-header-cell-cushion::first-letter {
+  text-transform: capitalize;
 }
