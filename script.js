@@ -75,20 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return [year, month, day].join("-");
   }
-});
-
-function copyToClipboard(inputId) {
-  var copyText = document.getElementById(inputId);
-
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-
-  document.execCommand("copy");
-
-  alert("Copiado: " + copyText.value);
-}
-document.addEventListener("DOMContentLoaded", function () {
-  // ... (El resto de tu código aquí)
 
   document.getElementById("generatePDF").addEventListener("click", function () {
     let calendarContainer = document.querySelector("#calendar");
@@ -118,12 +104,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
-}
-gtag("js", new Date());
-
-gtag("config", "G-JB5STV6F2W");
