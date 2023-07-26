@@ -87,29 +87,38 @@ function copyToClipboard(inputId) {
 
   alert("Copiado: " + copyText.value);
 }
-document.getElementById("generatePDF").addEventListener("click", function () {
-  let calendarContainer = document.querySelector("#calendar");
+document.addEventListener("DOMContentLoaded", function () {
+  // ... (El resto de tu código aquí)
 
-  // Aumentar el tamaño del contenedor del calendario
-  calendarContainer.style.width = "80%";
+  document.getElementById("generatePDF").addEventListener("click", function () {
+    let calendarContainer = document.querySelector("#calendar");
 
-  // Ajustar la escala de la página para incluir todo el calendario en la captura de pantalla
-  document.body.style.zoom = "80%";
+    // Aumentar el tamaño del contenedor del calendario
+    calendarContainer.style.width = "80%";
 
-  html2canvas(calendarContainer).then(function (canvas) {
-    var imgData = canvas.toDataURL("image/png");
+    // Ajustar la escala de la página para incluir todo el calendario en la captura de pantalla
+    document.body.style.zoom = "80%";
 
-    // Crear una nueva instancia de jsPDF en orientación horizontal
-    let doc = new jsPDF();
+    html2canvas(calendarContainer).then(function (canvas) {
+      var imgData = canvas.toDataURL("image/png");
 
-    doc.addImage(imgData, "PNG", 0, 0);
-    doc.save("Servicios_mes.pdf");
+      // Crear una nueva instancia de jsPDF en orientación horizontal
+      let doc = new jsPDF("landscape");
 
-    // Restaurar el tamaño original del contenedor del calendario y la escala de la página
-    calendarContainer.style.width = "100%";
-    document.body.style.zoom = "100%";
+      // Ajustar la escala de la imagen para que se ajuste al PDF
+      var width = doc.internal.pageSize.getWidth();
+      var height = doc.internal.pageSize.getHeight();
+      doc.addImage(imgData, "PNG", 0, 0, width, height);
+
+      doc.save("Servicios_mes.pdf");
+
+      // Restaurar el tamaño original del contenedor del calendario y la escala de la página
+      calendarContainer.style.width = "100%";
+      document.body.style.zoom = "100%";
+    });
   });
 });
+
 
 window.dataLayer = window.dataLayer || [];
 function gtag() {

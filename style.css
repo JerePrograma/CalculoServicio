@@ -199,6 +199,9 @@ footer button {
     margin-right: 0;
     width: auto;
   }
+  .fc-media-screen{
+    height: 80vh;  
+  }
 }
 
 h1 {
