@@ -106,7 +106,7 @@ document.getElementById("generatePDF").addEventListener("click", function () {
     doc.save("Servicios_mes.pdf");
 
     // Restaurar el tamaño original del contenedor del calendario y la escala de la página
-    calendarContainer.style.width = "80vw";
+    calendarContainer.style.width = "100%";
     document.body.style.zoom = "100%";
   });
 });

@@ -22,12 +22,57 @@ label {
   color: #007bff;
 }
 
-.input-field,
-#calcular,
-#generatePDF {
+.input-field {
   width: 300px;
   text-align: center;
   border-radius: 0.8em;
+}
+.botones button {
+  width: 300px;
+}
+.botones button,
+.footer button,
+button {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #2c9caf;
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid #2c9caf;
+}
+
+.botones button:hover,
+.footer button:hover,
+button {
+  color: #ffffff;
+  transform: scale(1.1);
+  outline: 2px solid #70bdca;
+  box-shadow: 4px 5px 17px -4px #268391;
+}
+
+.botones button::before,
+.footer button::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #2c9caf;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.botones button:hover::before,
+.footer button:hover::before {
+  width: 250%;
 }
 
 #horario,
@@ -37,7 +82,7 @@ label {
   padding: 0 20px;
   text-align: center;
   height: 35px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   border-radius: 0.5em;
   font-size: 1.3em;
 }
@@ -47,8 +92,13 @@ label {
   height: 65px;
   padding: 10px 20px;
   font-size: 1.5em;
-  color: #FFF;
+  color: #fff;
   border: none;
+  background-color: #007bff;
+}
+
+.footer button {
+  color: #fff;
   background-color: #007bff;
 }
 
@@ -57,7 +107,6 @@ label {
   text-align: center;
   scale: 0.9;
 }
-
 
 .fc-header-toolbar {
   justify-content: end;
@@ -75,7 +124,7 @@ label {
 }
 
 .fc-daygrid-day-number {
-  font-size: 2em;
+  font-size: 3em;
   color: #007bff;
 }
 
@@ -93,26 +142,32 @@ footer input {
   font-size: 1.2em;
   border: none;
   text-align: center;
+  margin-right: 20px;
+  width: 300px;
 }
 
 footer button {
   border-radius: 0.5em;
   background-color: #007bff;
-  color: #FFF;
+  color: #fff;
   border: none;
   padding: 10px;
   max-width: 450px;
   align-self: center;
   font-size: 1.2em;
+  margin: 10px;
 }
 
+.fc-sticky {
+  font-size: 20px;
+}
 @media (max-width: 700px) {
   .main-container {
     flex-direction: column;
     height: 400px;
   }
 
-  #calendar{
+  #calendar {
     scale: 0.98;
   }
   .fc-header-toolbar,
@@ -123,11 +178,41 @@ footer button {
   .MercadoPago {
     flex-direction: column;
   }
+  .fc-daygrid-day-number {
+    font-size: 2em;
+    color: #007bff;
+  }
+  .footer button {
+    color: #fff;
+    background-color: #007bff;
+    height: 20px;
+    width: 400px;
+    padding: 0;
+  }
+  .fc-sticky {
+    font-size: 15px;
+  }
+  footer input {
+    font-size: 1.2em;
+    border: none;
+    text-align: center;
+    margin-right: 0;
+    width: auto;
+  }
 }
 
 h1 {
   text-align: center;
   margin-top: auto;
   font-size: 2em;
+  color: #007bff;
+}
+
+.fc-toolbar-title::first-letter {
+  text-transform: capitalize ;
+}
+
+.fc-toolbar-title{
+  font-size: 1.6em;
   color: #007bff;
 }
