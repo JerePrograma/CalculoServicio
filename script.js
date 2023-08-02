@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initialView: "dayGridMonth",
     locale: "es",
     dateClick: function(info) {
-      var note = prompt("Por favor ingresa una nota para " + info.dateStr + ":");
+      var note = prompt("Ingresá una anotación:");
   
       if (note) {
         var events = calendar.getEvents().filter(function(e) {
@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       return { domNodes: [contentEl] };
     },
-  });
-  
+  }); 
   
 
   calendar.render();
