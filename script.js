@@ -7,7 +7,47 @@ document.addEventListener("DOMContentLoaded", function () {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
     locale: "es",
+    dateClick: function(info) {
+      var note = prompt("Ingresá anotación");
+  
+      if (note) {
+        var event = calendar.getEvents().find(function(e) {
+          return e.startStr === info.dateStr;
+        });
+  
+        if (event) {
+          var existingDescription = event.extendedProps.description || '';
+          var newDescription = existingDescription + (existingDescription ? '\n' : '') + note;
+          event.setExtendedProp('description', newDescription);
+        } else {
+          calendar.addEvent({
+            start: info.dateStr,
+            allDay: true,
+            description: note,
+          });
+        }
+      }
+    },
+    eventContent: function(arg) {
+      var contentEl = document.createElement('div');
+      contentEl.classList.add('event-content');
+  
+      if (arg.event.extendedProps.description) {
+        var description = arg.event.extendedProps.description;
+        var notes = description.split('\n');
+  
+        for (var i = 0; i < notes.length; i++) {
+          var noteEl = document.createElement('div');
+          noteEl.classList.add('event-note');
+          noteEl.textContent = notes[i];
+          contentEl.appendChild(noteEl);
+        }
+      }
+  
+      return { domNodes: [contentEl] };
+    },
   });
+  
 
   calendar.render();
 
