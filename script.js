@@ -8,19 +8,24 @@ document.addEventListener("DOMContentLoaded", function () {
     initialView: "dayGridMonth",
     locale: "es",
     dateClick: function(info) {
-      var note = prompt("Ingresá anotación");
+      var note = prompt("Por favor ingresa una nota para " + info.dateStr + ":");
   
       if (note) {
-        var event = calendar.getEvents().find(function(e) {
+        var events = calendar.getEvents().filter(function(e) {
           return e.startStr === info.dateStr;
         });
   
-        if (event) {
-          var existingDescription = event.extendedProps.description || '';
+        var noteEvent = events.find(function(e) {
+          return e.title === "Nota";
+        });
+  
+        if (noteEvent) {
+          var existingDescription = noteEvent.extendedProps.description || '';
           var newDescription = existingDescription + (existingDescription ? '\n' : '') + note;
-          event.setExtendedProp('description', newDescription);
+          noteEvent.setExtendedProp('description', newDescription);
         } else {
           calendar.addEvent({
+            title: 'Nota',
             start: info.dateStr,
             allDay: true,
             description: note,
@@ -32,6 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
       var contentEl = document.createElement('div');
       contentEl.classList.add('event-content');
   
+      var titleEl = document.createElement('div');
+      titleEl.classList.add('event-title');
+      if(arg.event.title !== 'Nota'){
+          titleEl.textContent = arg.event.title;
+          contentEl.appendChild(titleEl);
+      }
+      
       if (arg.event.extendedProps.description) {
         var description = arg.event.extendedProps.description;
         var notes = description.split('\n');
@@ -47,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return { domNodes: [contentEl] };
     },
   });
+  
   
 
   calendar.render();
