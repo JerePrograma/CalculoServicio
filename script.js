@@ -7,25 +7,26 @@ document.addEventListener("DOMContentLoaded", function () {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
     locale: "es",
-    dateClick: function(info) {
+    dateClick: function (info) {
       var note = prompt("Ingresá una anotación:");
-  
+
       if (note) {
-        var events = calendar.getEvents().filter(function(e) {
+        var events = calendar.getEvents().filter(function (e) {
           return e.startStr === info.dateStr;
         });
-  
-        var noteEvent = events.find(function(e) {
+
+        var noteEvent = events.find(function (e) {
           return e.title === "Nota";
         });
-  
+
         if (noteEvent) {
-          var existingDescription = noteEvent.extendedProps.description || '';
-          var newDescription = existingDescription + (existingDescription ? '\n' : '') + note;
-          noteEvent.setExtendedProp('description', newDescription);
+          var existingDescription = noteEvent.extendedProps.description || "";
+          var newDescription =
+            existingDescription + (existingDescription ? "\n" : "") + note;
+          noteEvent.setExtendedProp("description", newDescription);
         } else {
           calendar.addEvent({
-            title: 'Nota',
+            title: "Nota",
             start: info.dateStr,
             allDay: true,
             description: note,
@@ -33,33 +34,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     },
-    eventContent: function(arg) {
-      var contentEl = document.createElement('div');
-      contentEl.classList.add('event-content');
-  
-      var titleEl = document.createElement('div');
-      titleEl.classList.add('event-title');
-      if(arg.event.title !== 'Nota'){
-          titleEl.textContent = arg.event.title;
-          contentEl.appendChild(titleEl);
+    eventContent: function (arg) {
+      var contentEl = document.createElement("div");
+      contentEl.classList.add("event-content");
+
+      var titleEl = document.createElement("div");
+      titleEl.classList.add("event-title");
+      if (arg.event.title !== "Nota") {
+        titleEl.textContent = arg.event.title;
+        contentEl.appendChild(titleEl);
       }
-      
+
       if (arg.event.extendedProps.description) {
         var description = arg.event.extendedProps.description;
-        var notes = description.split('\n');
-  
+        var notes = description.split("\n");
+
         for (var i = 0; i < notes.length; i++) {
-          var noteEl = document.createElement('div');
-          noteEl.classList.add('event-note');
+          var noteEl = document.createElement("div");
+          noteEl.classList.add("event-note");
           noteEl.textContent = notes[i];
           contentEl.appendChild(noteEl);
         }
       }
-  
+
       return { domNodes: [contentEl] };
     },
-  }); 
-  
+  });
 
   calendar.render();
 
@@ -130,14 +130,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("generatePDF").addEventListener("click", function () {
     let calendarContainer = document.querySelector("#calendar");
+    let containerWidth = calendarContainer.offsetWidth;
 
-    // Aumentar el tamaño del contenedor del calendario
-    calendarContainer.style.width = "80%";
+    // Ajusta el ancho para la captura, si es necesario
+    calendarContainer.style.width = "100%";
 
-    // Ajustar la escala de la página para incluir todo el calendario en la captura de pantalla
-    document.body.style.zoom = "80%";
-
-    html2canvas(calendarContainer).then(function (canvas) {
+    html2canvas(calendarContainer, {
+      scale: 1, // Ajusta este valor si es necesario
+      width: containerWidth, // Asegúrate de que estas dimensiones coincidan con el contenedor del calendario
+      height: calendarContainer.scrollHeight,
+    }).then(function (canvas) {
       var imgData = canvas.toDataURL("image/png");
 
       // Crear una nueva instancia de jsPDF en orientación horizontal

@@ -119,8 +119,10 @@ button {
   align-self: center;
 }
 
-#calendar th,#calendar td,#calendar tr{
-  border: 3px solid  #625e6e;
+#calendar th,
+#calendar td,
+#calendar tr {
+  border: 3px solid #625e6e;
   border-collapse: collapse;
 }
 
@@ -234,6 +236,6 @@ h1 {
 h2 {
   text-align: center;
   margin-top: auto;
-  font-size: 1,5em;
+  font-size: 1, 5em;
   color: #007bff;
 }
